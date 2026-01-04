@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Neon Music Player</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body>
+
+  <!-- Neon Animated Background -->
+  <div class="neon-bg">
+    <div class="neon-line line1"></div>
+    <div class="neon-line line2"></div>
+    <div class="neon-line line3"></div>
+  </div>
+
+
+  <!-- Sidebar -->
+  <div class="sidebar d-flex flex-column justify-content-between p-3">
+    <div>
+      <h3 class="logo mb-4">Spotify</h3>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a href="#" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Search</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Your Library</a></li>
+      </ul>
+    </div>
+
+    <!-- Circular Songs Preview -->
+    <div class="circle-songs mt-4">
+      <img src="covers/cover1.jpg" alt="song1" class="circle-song" onclick="playTrack(0)">
+      <img src="covers/cover2.jpg" alt="song2" class="circle-song" onclick="playTrack(1)">
+      <img src="covers/cover3.jpg" alt="song3" class="circle-song" onclick="playTrack(2)">
+      <img src="covers/cover4.jpg" alt="song4" class="circle-song" onclick="playTrack(3)">
+      <img src="covers/cover5.jpg" alt="song5" class="circle-song" onclick="playTrack(4)">
+      <img src="covers/cover6.jpg" alt="song6" class="circle-song" onclick="playTrack(5)">
+      <img src="covers/cover7.jpg" alt="song7" class="circle-song" onclick="playTrack(6)">
+      <img src="covers/cover8.jpg" alt="song8" class="circle-song" onclick="playTrack(7)">
+      <img src="covers/cover9.jpg" alt="song9" class="circle-song" onclick="playTrack(8)">
+      <img src="covers/cover10.jpg" alt="song10" class="circle-song" onclick="playTrack(9)">
+      <img src="covers/cover11.jpg" alt="song11" class="circle-song" onclick="playTrack(10)">
+      <img src="covers/cover12.jpg" alt="song12" class="circle-song" onclick="playTrack(11)">
+    </div>
+  </div>
+
+  <!-- Main Content -->
+    <div class="main-content">
+  <!-- 🔍 Search Bar -->
+  <div class="search-bar-container">
+    <input type="text" id="searchBar" placeholder="Search for songs, artists..." onkeyup="searchSongs()">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+
+  <h2 class="text-white mt-4 mb-3">My Playlist</h2>
+
+    <div class="playlist row row-cols-1 row-cols-md-3 g-4">
+
+      <div class="col" onclick="openTrackPopup(0)">
+        <div class="card track-card text-center">
+          <img src="covers/cover1.jpg" class="card-img-top" alt="Song 1">
+          <div class="card-body">
+            <h5 class="card-title">Perfect</h5>
+            <p class="card-text">Ed Sheeran</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(1)">
+        <div class="card track-card text-center">
+          <img src="covers/cover2.jpg" class="card-img-top" alt="Song 2">
+          <div class="card-body">
+            <h5 class="card-title">dilbar ki ankho ka</h5>
+            <p class="card-text">rashmeet kaur</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(2)">
+        <div class="card track-card text-center">
+          <img src="covers/cover3.jpg" class="card-img-top" alt="Song 3">
+          <div class="card-body">
+            <h5 class="card-title">Dil Dil Dil</h5>
+            <p class="card-text">Sunidhi Chauhan, Divya Kumar</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(3)">
+        <div class="card track-card text-center">
+          <img src="covers/cover4.jpg" class="card-img-top" alt="Song 4">
+          <div class="card-body">
+            <h5 class="card-title">Azul</h5>
+            <p class="card-text">Guru Randhawa</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(4)">
+        <div class="card track-card text-center">
+          <img src="covers/cover5.jpg" class="card-img-top" alt="Song 5">
+          <div class="card-body">
+            <h5 class="card-title">Humnava</h5>
+            <p class="card-text">Arijit Singh</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(5)">
+        <div class="card track-card text-center">
+          <img src="covers/cover6.jpg" class="card-img-top" alt="Song 6">
+          <div class="card-body">
+            <h5 class="card-title">Sanam Teri Kasam</h5>
+            <p class="card-text">Ankit Tiwari</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(6)">
+        <div class="card track-card text-center">
+          <img src="covers/cover7.jpg" class="card-img-top" alt="Song 7">
+          <div class="card-body">
+            <h5 class="card-title">Dirty Little Secret</h5>
+            <p class="card-text">Zack Knight, Nora Fatehi</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(7)">
+        <div class="card track-card text-center">
+          <img src="covers/cover8.jpg" class="card-img-top" alt="Song 8">
+          <div class="card-body">
+            <h5 class="card-title">Lil Mama See</h5>
+            <p class="card-text">Road Runner</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(8)">
+        <div class="card track-card text-center">
+          <img src="covers/cover9.jpg" class="card-img-top" alt="Song 9">
+          <div class="card-body">
+            <h5 class="card-title">Play Date</h5>
+            <p class="card-text">Lilly Brooks</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(9)">
+        <div class="card track-card text-center">
+          <img src="covers/cover10.jpg" class="card-img-top" alt="Song 10">
+          <div class="card-body">
+            <h5 class="card-title">Go Down The</h5>
+            <p class="card-text">Spice</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(10)">
+        <div class="card track-card text-center">
+          <img src="covers/cover11.jpg" class="card-img-top" alt="Song 11">
+          <div class="card-body">
+            <h5 class="card-title">Paro</h5>
+            <p class="card-text">Nej</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" onclick="openTrackPopup(11)">
+        <div class="card track-card text-center">
+          <img src="covers/cover12.jpg" class="card-img-top" alt="Song 12">
+          <div class="card-body">
+            <h5 class="card-title">Better</h5>
+            <p class="card-text">Zayn Malik</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- ❤️ Favourites Section -->
+    <div class="favourites-section p-3">
+      <h4 class="text-white mb-3"><i class="fa-solid fa-heart text-danger"></i> Favourites</h4>
+      <div id="favouritesList" class="favourites-list">
+        <p class="text-muted">No favourite songs yet</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Bar -->
+  <div class="player-bar d-flex justify-content-between align-items-center p-3">
+    <div class="song-info d-flex align-items-center gap-3">
+      <img id="cover" src="covers/cover1.jpg" alt="Cover" class="cover-square">
+      <div>
+        <h6 id="title">Perfect</h6>
+        <p id="artist">Ed Sheeran</p>
+      </div>
+    </div>
+
+    <div class="controls text-center">
+      <button class="btn control-btn" onclick="prevTrack()">⏮</button>
+      <button class="btn play-btn" onclick="togglePlay()">▶️</button>
+      <button class="btn control-btn" onclick="nextTrack()">⏭</button>
+      <input type="range" id="progress" class="form-range progress-bar-custom" value="0" step="1" min="0" max="100">
+    </div>
+  </div>
+
+  <audio id="audio"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+  

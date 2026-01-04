@@ -1,0 +1,396 @@
+/* 🌐 Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* 🎨 Global Styles */
+body {
+  background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔮 Neon Animated Background */
+.neon-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+.neon-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #1DB954, transparent);
+  opacity: 0.5;
+  animation: moveLines 5s linear infinite;
+}
+.line1 { left: 5%; animation-delay: 0s; }
+.line2 { left: 20%; animation-delay: 2s; }
+.line3 { left: 50%; animation-delay: 5s; }
+
+@keyframes moveLines {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* 🎵 Sidebar */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  padding-bottom: 15px;
+}
+
+.logo {
+  color: #1DB954;
+  font-weight: bold;
+  text-shadow: 0 0 10px #1DB954;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.nav-link {
+  color: #aaa;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+.nav-link.active, .nav-link:hover {
+  color: #1DB954;
+}
+
+/* 🟢 Scrollable Circular Songs Section */
+.circle-songs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+  overflow-y: auto;
+  height: 60vh;
+  scrollbar-width: thin;
+  scrollbar-color: #1DB954 #000;
+  scroll-behavior: smooth;
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+/* 🌈 Neon Scrollbar */
+.circle-songs::-webkit-scrollbar {
+  width: 6px;
+}
+.circle-songs::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+}
+.circle-songs::-webkit-scrollbar-thumb {
+  background: #1DB954;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #1DB954aa;
+}
+.circle-songs::-webkit-scrollbar-thumb:hover {
+  background: #22e061;
+}
+
+/* 🎵 Circle Song Image */
+.circle-song {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #1DB954;
+  object-fit: cover;
+  box-shadow: 0 0 12px #1DB95488;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  cursor: pointer;
+}
+.circle-song:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #1DB954cc;
+}
+
+/* 🎧 Main Content */
+.main-content {
+  margin-left: 260px;
+  padding: 30px;
+  flex-grow: 1;
+  z-index: 1;
+}
+/* Search Bar Styling */
+.search-bar-container {
+  position: relative;
+  width: 60%;
+  margin: 20px auto 30px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  padding: 10px 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.search-bar-container:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-bar-container input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.search-bar-container i {
+  color: #1db954; /* Spotify green */
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.search-bar-container i:hover {
+  transform: scale(1.1);
+}
+
+/* Placeholder Text */
+.search-bar-container input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+.track-card {
+  background-color: #181818;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  max-width: 200px;
+  margin: 0 auto;
+}
+.track-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #1DB95455;
+}
+.track-card img {
+  border-radius: 12px 12px 0 0;
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+.track-card h5 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 3px;
+}
+.track-card p {
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+/* 🎶 Player Bar */
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(18, 18, 18, 0.95);
+  border-top: 1px solid #333;
+  box-shadow: 0 -2px 15px rgba(0,0,0,0.6);
+  z-index: 10;
+  padding: 10px 20px;
+}
+
+.song-info img.cover-square {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 0 15px #1DB95488;
+}
+
+.song-info h6 {
+  margin: 0;
+  font-weight: 600;
+}
+.song-info p {
+  margin: 0;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+/* 🔘 Controls */
+.controls {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.play-btn {
+  font-size: 1.8rem;
+  color: #fff;
+  background: black;
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 0 25px #1DB95488, 0 0 50px #1DB95455;
+  transition: transform 0.2s ease;
+}
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+.control-btn {
+  background: transparent;
+  color: #bbb;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+.control-btn:hover {
+  color: #1DB954;
+}
+
+.progress-bar-custom {
+  width: 300px;
+  accent-color: #1DB954;
+}
+
+/* 🌌 Fullscreen Popup Styling */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #0a0a0a 60%, #000000 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.4s ease;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  text-align: center;
+  color: #fff;
+  max-width: 500px;
+  animation: slideUp 0.5s ease;
+}
+
+.popup-cover {
+  width: 280px;
+  height: 280px;
+  border-radius: 25px;
+  box-shadow: 0 0 50px #1DB954aa, 0 0 100px #1DB95455;
+  object-fit: cover;
+  margin-bottom: 25px;
+  animation: popCover 0.5s ease;
+}
+
+.popup h3 {
+  color: #1DB954;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px #1DB954aa;
+}
+
+.popup p {
+  color: #ddd;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.popup-btn {
+  background: #1DB954;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 25px #1DB95488;
+  transition: 0.3s ease;
+}
+
+.popup-btn:hover {
+  background: #16a44d;
+  transform: scale(1.05);
+}
+
+.popup-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup-close:hover {
+  color: #1DB954;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes popCover {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .circle-songs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    padding-bottom: 100px;
+  }
+  .progress-bar-custom {
+    width: 150px;
+  }
+}
